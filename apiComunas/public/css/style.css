@@ -1,0 +1,17 @@
+header, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    height: 20vh;
+}
+
+main {
+    min-height: 70vh;
+}
+
+footer {
+    height: 10vh;
+}

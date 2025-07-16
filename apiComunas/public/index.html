@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API REST - Comunas y Vecinos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="images/api.png" type="image/png" />
+</head>
+
+<body>
+  <header class="bg-success text-white d-flex align-items-center gap-2 p-2">
+    <img src="images/api.png" alt="Logo" width="64" />
+    <h1 class="m-0">API Rest - Comunas y Vecinos</h1>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="comunas-ids.html" style="font-size: 1.5rem;">Ids de las Comunas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-3">
+    <h2>Comunas Endpoints</h2>
+
+    <span class="badge text-bg-info">GET</span>
+    <code>/api/comunas</code>
+    <p>Obtener todas las comunas</p>
+
+    <hr />
+
+    <span class="badge text-bg-success">POST</span>
+    <code>/api/comunas</code>
+    <p>Crear una nueva comuna</p>
+    <p><strong>Enviar un JSON de esta forma:</strong></p>
+    <pre>
+      {
+        "comuna": 16,
+        "nombre": "Comuna 16",
+        "descripcion": "Descripción de la comuna 16",
+        "dato_adicional": "Dato adicional de la comuna 16",
+        "comisarias": {
+          "comunal": {
+            "nombre": "Comisaría Comunal 16",
+            "direccion": "Dirección de la Comisaría Comunal 16"
+          },
+          "vecinales": [
+            {
+              "nombre": "Comisaría Vecinal 16-A",
+              "direccion": "Dirección de la Comisaría Vecinal 16-A"
+            },
+            {
+              "nombre": "Comisaría Vecinal 16-B",
+              "direccion": "Dirección de la Comisaría Vecinal 16-B"
+            }
+          ]
+        },
+        "barrios": ["Barrio 1", "Barrio 2", "Barrio 3"]
+      }
+      
+    </pre>
+
+    <hr />
+
+    <span class="badge text-bg-warning">PUT</span>
+    <code>/api/comunas/:id</code>
+    <p>Actualizar una comuna existente (Reemplazar <strong>:id</strong> con el ID real)</p>
+    <p><strong>Enviar un JSON de esta forma:</strong></p>
+    <pre>
+      {
+        "comuna": 100,
+        "nombre": "Comuna actualizada",
+        "descripcion": "Descripción actualizada de la comuna",
+        "dato_adicional": "Nuevo dato adicional",
+        "comisarias": {
+          "comunal": {
+            "nombre": "Comisaría Comunal actualizada",
+            "direccion": "Av. Comunal 123"
+          },
+          "vecinales": [
+            {
+              "nombre": "Comisaría Vecinal actualizada",
+              "direccion": "Calle Vecinal 456"
+            }
+          ]
+        },
+        "barrios": ["Barrio A", "Barrio B", "Barrio C"]
+      }
+      
+    </pre>
+
+    <hr />
+
+    <span class="badge text-bg-danger">DELETE</span>
+    <code>/api/comunas/:id</code>
+    <p>Eliminar una comuna existente (Reemplazar <strong>:id</strong> con el ID real)</p>
+
+    <hr />
+
+    <h2>Vecinos Endpoints</h2>
+
+    <span class="badge text-bg-info">GET</span>
+    <code>/api/vecinos</code>
+    <p>Obtener todos los vecinos</p>
+
+    <hr />
+
+    <span class="badge text-bg-info">GET</span>
+    <code>/api/vecinos/:id</code>
+    <p>Buscar un vecino por su ID (Reemplazar <strong>:id</strong> con el ID real)</p>
+
+    <hr />
+    <hr />
+
+    <span class="badge text-bg-info">GET</span>
+    <code>/api/vecinos/nombre/:nombre</code>
+    <p>Buscar un vecino por su <strong>nombre</strong> (Reemplazar <strong>:nombre</strong> con el nombre exacto. No
+      distingue mayúsculas/minúsculas).</p>
+    <p><strong>Por ejjemplo:</strong></p>
+    <pre>
+     /api/vecinos/nombre/Lionel Messi
+    </pre>
+    <hr />
+
+    <span class="badge text-bg-info">GET</span>
+    <code>/api/vecinos/comuna/:comunaId</code>
+    <p>Obtener todos los vecinos de una <strong>comuna</strong> (Reemplazar <strong>:comunaId</strong> con el ID real de
+      la comuna).</p>
+    <p><strong>Por ejemplo:</strong></p>
+    <pre>
+     /api/vecinos/comuna/680fb52f5c1cd6336914d11b
+    </pre>
+
+    <span class="badge text-bg-success">POST</span>
+    <code>/api/vecinos</code>
+    <p>Crear un nuevo vecino</p>
+    <p><strong>Enviar un JSON de esta forma:</strong></p>
+    <pre>
+      {
+        "nombre": "Lionel Messi",
+        "edad": 36,
+        "comuna": "680fb52f5c1cd6336914d11b",
+        "direccion": "Calle de la Copa 123",
+        "telefono": "123456789"
+      }
+    </pre>
+
+    <hr />
+
+    <span class="badge text-bg-warning">PUT</span>
+    <code>/api/vecinos/:id</code>
+    <p>Actualizar un vecino existente (Reemplazar <strong>:id</strong> con el ID real)</p>
+    <p><strong>Enviar un JSON de esta forma:</strong></p>
+    <pre>
+{
+  "nombre": "Lionel Andres Messi",
+  "direccion": "Calle Actualizada 123",
+  "telefono": "9876-5432",
+  "comunaId": "680fb52f5c1cd6336914d11c"
+}
+    </pre>
+
+    <hr />
+
+    <span class="badge text-bg-danger">DELETE</span>
+    <code>/api/vecinos/:id</code>
+    <p>Eliminar un vecino existente (Reemplazar <strong>:id</strong> con el ID real)</p>
+  </main>
+
+  <footer class="bg-dark text-white text-center p-2">
+    <p>Aplicaciones Híbridas | Santiago Martinez Donde | 2025</p>
+  </footer>
+</body>
+
+</html>
