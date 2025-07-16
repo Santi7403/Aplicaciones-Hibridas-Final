@@ -1,10 +1,5 @@
-// frontend-vite/src/services/adminService.js
 import axios from 'axios';
-
-// CAMBIA ESTO:
-// const API_URL = '/api/users/admin';
-// A ESTO:
-const API_URL = 'http://localhost:5000/api/users/admin'; // <-- Usa la URL completa de tu backend
+const API_URL = 'http://localhost:5000/api/users/admin'; 
 
 const getConfig = (token) => {
     return {

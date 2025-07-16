@@ -1,4 +1,3 @@
-// apiComunas/routers/userRouter.js
 import express from 'express';
 import userController from '../controllers/userController.js';
 import { protect, authorizeRoles } from '../middlewares/authMiddleware.js';

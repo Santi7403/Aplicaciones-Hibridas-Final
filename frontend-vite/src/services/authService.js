@@ -1,10 +1,5 @@
-// frontend-vite/src/services/authService.js
 import axios from 'axios';
-
-// CAMBIA ESTO:
-// const API_URL = '/api/users';
-// A ESTO:
-const API_URL = 'http://localhost:5000/api/users'; // <-- Usa la URL completa de tu backend
+const API_URL = 'http://localhost:5000/api/users'; 
 
 const register = async (userData) => {
     const response = await axios.post(`${API_URL}/register`, userData);
