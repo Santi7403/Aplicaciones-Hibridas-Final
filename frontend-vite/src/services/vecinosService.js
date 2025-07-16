@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/vecinos'; 
-
+const API_URL = 'https://aplicaciones-hibridas-final.onrender.com/api/vecinos';
 const getAuthHeaders = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return user && user.token ? { Authorization: `Bearer ${user.token}` } : {};

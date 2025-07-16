@@ -1,6 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:5000/api/users/admin'; 
-
+const API_URL = 'https://aplicaciones-hibridas-final.onrender.com/api/users/admin';
 const getConfig = (token) => {
     return {
         headers: {
